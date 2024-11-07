@@ -1,0 +1,985 @@
+{
+	"info": {
+		"_postman_id": "ae5def75-5154-4612-8dea-a728cc2a2929",
+		"name": "technosdev-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "22338205",
+		"_collection_link": "https://technosdev.postman.co/workspace/TechNosDev-Workspace~247858d0-2af8-4ee9-8730-b22a519a769c/collection/22338205-ae5def75-5154-4612-8dea-a728cc2a2929?action=share&source=collection_link&creator=22338205"
+	},
+	"item": [
+		{
+			"name": "service",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8080/service"
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"codCompany\": 1,\r\n    \"name\": \"Corte de cabelo\",\r\n    \"description\": \"Serviço de corte de cabelo personalizado\",\r\n    \"price\": 50,\r\n    \"averageTime\": 30\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/service"
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8080/service/1"
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 2,\n    \"company\": {\n        \"id\": 1,\n        \"address\": {\n            \"id\": 1,\n            \"city\": {\n                \"id\": 1,\n                \"name\": \"Blumenau\",\n                \"uf\": \"SC\"\n            },\n            \"publicPlace\": \"Rua General Osorio\",\n            \"locality\": \"Água verde\",\n            \"cep\": \"89070330\",\n            \"complement\": \"Apto 1011\"\n        },\n        \"name\": \"TechNosDev\",\n        \"cnpj\": \"55204769000113\",\n        \"email\": \"technosdev@gmail.com\",\n        \"phone\": \"47984555508\",\n        \"user\": \"techNosDev\",\n        \"password\": \"BrasilCopa\",\n        \"active\": true,\n        \"createdAt\": \"2024-08-06T01:31:42.943+00:00\"\n    },\n    \"name\": \"Corte de cabelo para homem\",\n    \"description\": \"É para cortar o cabelo nada mais\",\n    \"price\": 8.9,\n    \"averageTime\": 0,\n    \"active\": true,\n    \"createdAt\": \"2024-08-06T01:39:16.904+00:00\",\n    \"codService\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/service/2"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "employee-service",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8080/employeeService"
+					},
+					"response": []
+				},
+				{
+					"name": "list services by employee",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8080/employeeService/employee/1"
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"codService\": 6,\n    \"codEmployee\": 4\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/employeeService"
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"id\": 1,\n        \"service\": {\n            \"id\": 2,\n            \"company\": {\n                \"id\": 1,\n                \"address\": {\n                    \"id\": 1,\n                    \"city\": {\n                        \"id\": 1,\n                        \"name\": \"Blumenau\",\n                        \"uf\": \"SC\"\n                    },\n                    \"publicPlace\": \"Av. Paulista\",\n                    \"locality\": \"Badenfurt\",\n                    \"cep\": \"89070330\",\n                    \"complement\": \"Rua da esquina\"\n                },\n                \"name\": \"TechNosDev\",\n                \"cnpj\": \"55204769000113\",\n                \"email\": \"technosdev@gmail.com\",\n                \"phone\": \"47984555508\",\n                \"user\": \"techNosDev\",\n                \"password\": \"BrasilCopa\",\n                \"active\": true,\n                \"createdAt\": \"2024-08-06T01:31:42.943+00:00\"\n            },\n            \"name\": \"Corte de cabelo para homem\",\n            \"description\": \"É para cortar o cabelo nada mais\",\n            \"price\": 8.9,\n            \"averageTime\": 0,\n            \"active\": true,\n            \"createdAt\": \"2024-08-06T01:39:16.904+00:00\",\n            \"codService\": 2\n        },\n        \"employee\": {\n            \"id\": 1,\n            \"name\": \"Maria Oliveira Teloeken\",\n            \"cpf\": \"640.536.140-31\",\n            \"phone\": \"47984555508\",\n            \"email\": \"maria.oliveira@example.com\",\n            \"user\": \"maria.oliveira\",\n            \"password\": \"senhaSegura123\",\n            \"active\": true,\n            \"createdAt\": \"2024-08-06T01:31:28.003+00:00\"\n        }\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/employeeService/1"
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8080/employeeService/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "employee-company",
+			"item": [
+				{
+					"name": "list all",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8080/employeeCompany"
+					},
+					"response": []
+				},
+				{
+					"name": "find by cod company",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8080/employeeCompany/company/2"
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"codCompany\": 1,\n    \"codEmployee\": 5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/employeeCompany"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "employee",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8080/employee"
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user\": {\r\n      \"name\": \"Lucas Santos\",\r\n      \"cpf\": \"316.487.020-58\",\r\n      \"phone\": \"479845555193\",\r\n      \"email\": \"lucas.santos@example.com\",\r\n      \"user\": \"Lucas Santos\",\r\n      \"password\": \"senhaSegura123\"\r\n    }\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/employee"
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8080/employee/2"
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Pedro Teloeken\",\r\n  \"cpf\": \"987.654.321-00\",\r\n  \"phone\": \"47984555508\",\r\n  \"email\": \"maria.oliveira@example.com\",\r\n  \"user\": \"maria.oliveira\",\r\n  \"password\": \"senhaSegura123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/employee/3"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "company",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8080/company"
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8080/company/1"
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"codAddress\": 1,\r\n    \"codUser\": 1,\r\n    \"codFlowInformations\": 1,\r\n    \"cnpj\": \"55204769000113\"\r\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/company"
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"address\": {\r\n        \"id\": 6,\r\n        \"city\": {\r\n            \"id\": 1,\r\n            \"name\": \"Blumenau\",\r\n            \"uf\": \"SC\"\r\n        },\r\n        \"publicPlace\": \"Rua General Osorio 22\",\r\n        \"locality\": \"Água verde\",\r\n        \"cep\": \"89070330\",\r\n        \"complement\": \"Apto 1011\"\r\n    },\r\n    \"name\": \"TechNosDev2211\",\r\n    \"cnpj\": \"55204769000113\",\r\n    \"email\": \"technosdev@gmail.com\",\r\n    \"phone\": \"47984555508\",\r\n    \"user\": \"techNosDev\",\r\n    \"password\": \"BrasilCopa\"\r\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/company/2"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8080/user"
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{access-token}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"sandbox\",\r\n    \"email\": \"sandbox@gmail.com\",\r\n    \"password\": \"Senha123\",\r\n    \"cpf\": \"831.355.100-34\",\r\n    \"phone\": \"479845555989\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/user"
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8080/client/1"
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Lucas Teste\",\r\n    \"cpf\": \"547.957.650-06\",\r\n    \"phone\": \"47984555598\",\r\n    \"active\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/client/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "address",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8080/address"
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"city\": {\r\n        \"id\": 1,\r\n        \"name\": \"Blumenau\",\r\n        \"uf\": null\r\n    },\r\n    \"publicPlace\": \"Av. Paulista\",\r\n    \"locality\": \"Badenfurt\",\r\n    \"cep\": \"89070330\",\r\n    \"complement\": \"Rua da esquina\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/address"
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"city\": {\r\n               \"id\": 1,\r\n               \"name\": \"Blumenau\",\r\n               \"sg_uf\": \"SC\"\r\n            },\r\n    \"publicPlace\": \"Rua General Osorio\",\r\n    \"locality\": \"Água verde\",\r\n    \"cep\": \"89070330\",\r\n    \"complement\": \"Apto 1011\"\r\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/address/6"
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8080/address/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "scheduling",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8080/scheduling"
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"client\": {\r\n        \"id\": 1,\r\n        \"name\": \"Lucas Teste\",\r\n        \"cpf\": \"547.957.650-06\",\r\n        \"phone\": \"47984555598\",\r\n        \"active\": true,\r\n        \"createdAt\": \"2024-08-03T23:02:44.578+00:00\"\r\n    },\r\n    \"schedulingStatus\" : {\r\n        \"id\": 1,\r\n        \"name\": \"Agendado\",\r\n        \"active\": true,\r\n        \"createdAt\": \"2024-08-10T00:37:35.637+00:00\"\r\n    },\r\n    \"company\": {\r\n        \"id\": 1,\r\n        \"address\": {\r\n            \"id\": 1,\r\n            \"city\": {\r\n                \"id\": 1,\r\n                \"name\": \"Blumenau\",\r\n                \"uf\": \"SC\"\r\n            },\r\n            \"publicPlace\": \"Av. Paulista\",\r\n            \"locality\": \"Badenfurt\",\r\n            \"cep\": \"89070330\",\r\n            \"complement\": \"Rua da esquina\"\r\n        },\r\n        \"name\": \"TechNosDev\",\r\n        \"cnpj\": \"55204769000113\",\r\n        \"email\": \"technosdev@gmail.com\",\r\n        \"phone\": \"47984555508\",\r\n        \"user\": \"techNosDev\",\r\n        \"password\": \"BrasilCopa\",\r\n        \"active\": true,\r\n        \"createdAt\": \"2024-08-03T23:00:15.498+00:00\"\r\n    },\r\n    \"date\": \"2024-08-10T00:37:35.637+00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/scheduling"
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\": 1,\r\n        \"client\": {\r\n            \"id\": 1,\r\n            \"name\": \"Lucas Teste\",\r\n            \"cpf\": \"547.957.650-06\",\r\n            \"phone\": \"47984555598\",\r\n            \"active\": true,\r\n            \"createdAt\": \"2024-08-03T23:02:44.578+00:00\"\r\n        },\r\n        \"schedulingStatus\": {\r\n        \"id\": 2,\r\n        \"name\": \"Cortado\",\r\n        \"active\": true,\r\n        \"createdAt\": \"2024-08-10T00:37:44.020+00:00\"\r\n    },\r\n        \"company\": {\r\n            \"id\": 1,\r\n            \"address\": {\r\n                \"id\": 1,\r\n                \"city\": {\r\n                    \"id\": 1,\r\n                    \"name\": \"Blumenau\",\r\n                    \"uf\": \"SC\"\r\n                },\r\n                \"publicPlace\": \"Av. Paulista\",\r\n                \"locality\": \"Badenfurt\",\r\n                \"cep\": \"89070330\",\r\n                \"complement\": \"Rua da esquina\"\r\n            },\r\n            \"name\": \"TechNosDev\",\r\n            \"cnpj\": \"55204769000113\",\r\n            \"email\": \"technosdev@gmail.com\",\r\n            \"phone\": \"47984555508\",\r\n            \"user\": \"techNosDev\",\r\n            \"password\": \"BrasilCopa\",\r\n            \"active\": true,\r\n            \"createdAt\": \"2024-08-03T23:00:15.498+00:00\"\r\n        }\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/scheduling/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "scheduling status",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8080/schedulingStatus"
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Agendado\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/schedulingStatus"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Service Order",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8080/serviceOrder"
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"scheduling\": {\r\n        \"id\": 1,\r\n        \"client\": {\r\n            \"id\": 1,\r\n            \"name\": \"Lucas Teste\",\r\n            \"cpf\": \"547.957.650-06\",\r\n            \"phone\": \"47984555598\",\r\n            \"active\": true,\r\n            \"createdAt\": \"2024-08-03T23:02:44.578+00:00\"\r\n        },\r\n        \"schedulingStatus\": {\r\n            \"id\": 2,\r\n            \"name\": \"Cortado\",\r\n            \"active\": true,\r\n            \"createdAt\": \"2024-08-10T00:37:44.020+00:00\"\r\n        },\r\n        \"company\": {\r\n            \"id\": 1,\r\n            \"address\": {\r\n                \"id\": 1,\r\n                \"city\": {\r\n                    \"id\": 1,\r\n                    \"name\": \"Blumenau\",\r\n                    \"uf\": \"SC\"\r\n                },\r\n                \"publicPlace\": \"Av. Paulista\",\r\n                \"locality\": \"Badenfurt\",\r\n                \"cep\": \"89070330\",\r\n                \"complement\": \"Rua da esquina\"\r\n            },\r\n            \"name\": \"TechNosDev\",\r\n            \"cnpj\": \"55204769000113\",\r\n            \"email\": \"technosdev@gmail.com\",\r\n            \"phone\": \"47984555508\",\r\n            \"user\": \"techNosDev\",\r\n            \"password\": \"BrasilCopa\",\r\n            \"active\": true,\r\n            \"createdAt\": \"2024-08-03T23:00:15.498+00:00\"\r\n        }\r\n    },\r\n    \"service\" : {\r\n    \"id\": 1,\r\n    \"company\": {\r\n        \"id\": 1,\r\n        \"address\": {\r\n            \"id\": 1,\r\n            \"city\": {\r\n                \"id\": 1,\r\n                \"name\": \"Blumenau\",\r\n                \"uf\": \"SC\"\r\n            },\r\n            \"publicPlace\": \"Rua General Osorio\",\r\n            \"locality\": \"Água verde\",\r\n            \"cep\": \"89070330\",\r\n            \"complement\": \"Apto 1011\"\r\n        },\r\n        \"name\": \"TechNosDev\",\r\n        \"cnpj\": \"55204769000113\",\r\n        \"email\": \"technosdev@gmail.com\",\r\n        \"phone\": \"47984555508\",\r\n        \"user\": \"techNosDev\",\r\n        \"password\": \"BrasilCopa\",\r\n        \"active\": true,\r\n        \"createdAt\": \"2024-08-06T01:31:42.943+00:00\"\r\n    },\r\n    \"name\": \"Corte de cabelo\",\r\n    \"description\": \"É para cortar o cabelo nada mais\",\r\n    \"price\": 8.9,\r\n    \"averageTime\": 0,\r\n    \"active\": true,\r\n    \"createdAt\": \"2024-08-17T01:54:07.340+00:00\",\r\n    \"codService\": 1\r\n}, \"priceOrderService\": 80.80\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/serviceOrder"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authenticate",
+			"item": [
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonData = pm.response.json();",
+									"postman.setEnvironmentVariable(\"access-token\", jsonData.token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"login\": \"sandbox@gmail.com\",\r\n    \"password\": \"Senha123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/auth/login"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Role",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8080/role"
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"ADMIN\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/role"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Roles",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8080/userRoles"
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Administradores\",\n    \"user\": {\n        \"id\": 1,\n        \"name\": \"sandbox\",\n        \"email\": \"sandbox@gmail.com\",\n        \"password\": \"$2a$10$2eWZbR6y6eVKToycVFZr9uInqZ.15LIeDA3hdil9u3UUl8g0pvQu.\",\n        \"cpf\": \"831.355.100-34\",\n        \"phone\": \"47984555598\",\n        \"active\": true,\n        \"createdAt\": \"2024-08-26T00:07:21.430+00:00\",\n        \"roles\": null\n    },\n    \"role\": {\n        \"id\": 1,\n        \"name\": \"ADMIN\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/userRoles"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "county",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:8080/county"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "flow-informations",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{access-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"phone\": \"554799281556\",\n    \"defaultMessage\": \"Olá! Como posso ajudar você hoje a agendar seu próximo corte ou serviço de barbearia. É um prazer tê-lo conosco!\",\n    \"flowMessage\": \"Agendamento de maneira rápida e prática\",\n    \"flowCta\": \"Agendar\",\n    \"phoneNumberId\": \"373516032513406\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/flowInformations"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

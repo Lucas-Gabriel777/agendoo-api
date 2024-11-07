@@ -1,0 +1,332 @@
+{
+  "version": "3.1",
+  "data_api_version": "3.0",
+  "routing_model": {
+    "INFORMATIONS": [
+      "TERMS_AND_CONDITIONS",
+      "SCHEDULING"
+    ]
+  },
+  "screens": [
+    {
+      "id": "INFORMATIONS",
+      "title": "Informações",
+      "terminal": true,
+      "data": {
+        "company_phone_number": {
+          "type": "string",
+          "__example__": "Example"
+        }
+      },
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "Form",
+            "name": "flow_path",
+            "children": [
+              {
+                "type": "TextSubheading",
+                "text": "Informe seus dados!\n"
+              },
+              {
+                "type": "TextInput",
+                "name": "name",
+                "label": "Nome",
+                "required": true,
+                "input-type": "text"
+              },
+              {
+                "type": "TextInput",
+                "label": "CPF",
+                "name": "cpf",
+                "required": true,
+                "input-type": "number",
+                "max-chars": 11,
+                "min-chars": 11
+              },
+              {
+                "type": "OptIn",
+                "label": "Eu aceito os termos.",
+                "required": true,
+                "name": "termsAccept",
+                "on-click-action": {
+                  "name": "navigate",
+                  "payload": {},
+                  "next": {
+                    "name": "TERMS_AND_CONDITIONS",
+                    "type": "screen"
+                  }
+                }
+              },
+              {
+                "type": "Footer",
+                "label": "Continuar",
+                "on-click-action": {
+                  "name": "data_exchange",
+                  "payload": {
+                    "clientName": "${form.name}",
+                    "cpf": "${form.cpf}",
+                    "termsAccept": "${form.termsAccept}",
+                    "companyNumber": "${data.company_phone_number}"
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "SCHEDULING",
+      "title": "Agendamento",
+      "terminal": true,
+      "data": {
+        "clientName": {
+          "type": "string",
+          "__example__": "Example"
+        },
+        "cpf": {
+          "type": "string",
+          "__example__": "Example"
+        },
+        "termsAccept": {
+          "type": "boolean",
+          "__example__": false
+        },
+        "companyNumber": {
+          "type": "string",
+          "__example__": "Example"
+        },
+        "is_services": {
+          "type": "boolean",
+          "__example__": false
+        },
+        "is_time": {
+          "type": "boolean",
+          "__example__": false
+        },
+        "employees": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "metadata": {
+                "type": "string"
+              }
+            }
+          },
+          "__example__": [
+            {
+              "id": "1",
+              "title": "Lucas",
+              "metadata": "@lucas"
+            },
+            {
+              "id": "2",
+              "title": "Pedro",
+              "metadata": "@pedro"
+            }
+          ]
+        },
+        "services": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "metadata": {
+                "type": "string"
+              }
+            }
+          },
+          "__example__": [
+            {
+              "id": "1",
+              "title": "Corte de cabelo",
+              "metadata": "R$25,00"
+            },
+            {
+              "id": "2",
+              "title": "Corte de cabelo e barba",
+              "metadata": "R$50,00"
+            }
+          ]
+        },
+        "times": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "enabled": {
+                "type": "boolean"
+              }
+            }
+          },
+          "__example__": [
+            {
+              "id": "08:00",
+              "title": "08:00",
+              "enabled": true
+            },
+            {
+              "id": "09:00",
+              "title": "09:00",
+              "enabled": false
+            }
+          ]
+        }
+      },
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "Form",
+            "name": "flow_path",
+            "children": [
+              {
+                "type": "TextSubheading",
+                "text": "Detalhes do agendamento: "
+              },
+              {
+                "type": "DatePicker",
+                "label": "Dia",
+                "required": true,
+                "name": "day",
+                "error-message": "Informe o dia",
+                "on-select-action": {
+                  "name": "data_exchange",
+                  "payload": {
+                    "clientName": "${data.clientName}",
+                    "cpf": "${data.cpf}",
+                    "termsAccept": "${data.termsAccept}",
+                    "time": "${form.time}",
+                    "day": "${form.day}",
+                    "companyNumber": "${data.companyNumber}",
+                    "employeeId": "${form.employee}",
+                    "selectService": "${form.services}"
+                  }
+                }
+              },
+              {
+                "type": "Dropdown",
+                "required": true,
+                "label": "Funcionário",
+                "name": "employee",
+                "data-source": "${data.employees}",
+                "on-select-action": {
+                  "name": "data_exchange",
+                  "payload": {
+                    "clientName": "${data.clientName}",
+                    "cpf": "${data.cpf}",
+                    "termsAccept": "${data.termsAccept}",
+                    "time": "${form.time}",
+                    "day": "${form.day}",
+                    "companyNumber": "${data.companyNumber}",
+                    "employeeId": "${form.employee}",
+                    "selectService": "${form.services}"
+                  }
+                }
+              },
+              {
+                "type": "Dropdown",
+                "label": "Horário",
+                "required": "${data.is_time}",
+                "enabled": "${data.is_time}",
+                "name": "time",
+                "data-source": "${data.times}",
+                "on-select-action": {
+                  "name": "data_exchange",
+                  "payload": {
+                    "clientName": "${data.clientName}",
+                    "cpf": "${data.cpf}",
+                    "termsAccept": "${data.termsAccept}",
+                    "time": "${form.time}",
+                    "day": "${form.day}",
+                    "companyNumber": "${data.companyNumber}",
+                    "employeeId": "${form.employee}",
+                    "selectService": "${form.services}"
+                  }
+                }
+              },
+              {
+                "type": "Dropdown",
+                "label": "Serviço",
+                "required": "${data.is_services}",
+                "enabled": "${data.is_services}",
+                "name": "services",
+                "data-source": "${data.services}"
+              },
+              {
+                "type": "Footer",
+                "label": "Confirmar",
+                "on-click-action": {
+                  "name": "complete",
+                  "payload": {
+                    "selectService": "${form.services}",
+                    "employeeId": "${form.employee}",
+                    "selectDay": "${form.day}",
+                    "selectTime": "${form.time}",
+                    "clientName": "${data.clientName}",
+                    "cpf": "${data.cpf}",
+                    "termsAccept": "${data.termsAccept}",
+                    "companyNumber": "${data.companyNumber}"
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "TERMS_AND_CONDITIONS",
+      "title": "Termos e condições",
+      "data": {},
+      "layout": {
+        "type": "SingleColumnLayout",
+        "children": [
+          {
+            "type": "Form",
+            "name": "flow_path",
+            "children": [
+              {
+                "type": "TextSubheading",
+                "text": "Nossos Termos"
+              },
+              {
+                "type": "TextBody",
+                "text": "Ao utilizar o serviço de agendamento automatizado, você concorda em fornecer informações precisas e utilizá-lo de maneira responsável. O uso indevido, como agendamentos falsos, pode resultar na suspensão do acesso. Cancelamentos e reagendamentos devem ser feitos conforme as instruções, preferencialmente com 24 horas de antecedência."
+              },
+              {
+                "type": "TextSubheading",
+                "text": "Política de Privacidade"
+              },
+              {
+                "type": "TextBody",
+                "text": "A coleta e utiliza seus dados pessoais apenas para facilitar o agendamento e a prestação de serviços. Suas informações serão mantidas seguras e não serão compartilhadas com terceiros sem seu consentimento, exceto conforme exigido por lei. Ao utilizar o serviço, você concorda com esta coleta e uso de dados."
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

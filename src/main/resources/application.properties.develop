@@ -1,0 +1,28 @@
+spring.application.name=technosdev
+spring.profiles.active=test
+spring.jpa.open-in-view=true
+
+api.security.token.secret=${JWT.SECRET:my-secret-key}
+
+# MySQL properties
+spring.datasource.url=jdbc:mysql://localhost:3306/technosdev
+spring.datasource.username=root
+spring.datasource.password=290805
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+# Hibernate properties
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
+
+# Flyway
+spring.flyway.baseline-on-migrate=true
+spring.flyway.enabled=true
+spring.flyway.locations=classpath:db/migration
+
+# FLOW
+WEBHOOK_VERIFY_TOKEN=b6a4f2655ca6875f9a339edefb14de15271cfc84bf116c9351961bef04b03292
+ACCESS_TOKEN=EAAHGcBukZCZAsBO8kiu93NtthOFDyiKubeyfXYZApSAO62TbwuaB7Q3djF4WLyPMSduiG00ol4pidTdp8YQwBNnvg728ECZCXBxSyh8GrY0pWMNomb2WJA6Yk8t752rMtXQ7jHpeOex6Xc5JoAZAjbfWtFoWfjDUsIhN7L1tDiJhKiVZCxXDPx4sEc
+
+# CONFIG
+spring.mvc.pathmatch.matching-strategy=ant_path_matcher
